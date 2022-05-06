@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 # Create your views here.
 from myapp.form import SignupForm
+from myapp.models import Person
 
 
 def home(request):
@@ -21,3 +22,8 @@ def signup(request):
 
     form = SignupForm
     return render(request, 'registration/signup.html', {'form': form})
+
+
+def person(request):
+    persons = Person.objects.all()
+    return render(request, 'myapp/person.html', {'persons': persons})

@@ -1,6 +1,6 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
-    <h1>My First Bootstrap 4 Page</h1>
-    <p>Resize this responsive page to see the effect!</p>
+    <h1>Simple django authentication authorization</h1>
+    <p>Simple project for login and logout and sing and register user and Authorization User</p>
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -17,6 +17,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 {% if user.is_authenticated %}
                     <a class="dropdown-item" href="{% url 'logout' %}">logout</a>
+                    <a class="dropdown-item" href="{% url 'person' %}">person</a>
                 {% else %}
                     <a class="dropdown-item" href="{% url 'login' %}">login</a>
                     <a class="dropdown-item" href="{%url 'signup' %}">Register</a>
