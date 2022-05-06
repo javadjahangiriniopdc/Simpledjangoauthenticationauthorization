@@ -4,10 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class SignupForm(UserCreationForm):
-    full_name = forms.CharField(max_length=50, required=True)
-    mobile = forms.CharField(widget=forms.TextInput(attrs={'type': 'numer'}))
-    address = forms.CharField(max_length=50, required=True)
-
     class Meta:
         model = User
-        fields = ('full_name', 'mobile', 'address', 'username', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
