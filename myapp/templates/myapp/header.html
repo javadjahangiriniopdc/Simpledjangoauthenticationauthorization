@@ -1,10 +1,15 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>Simple django authentication authorization</h1>
     <p>Simple project for login and logout and sing and register user and Authorization User</p>
+    {% if user.is_authenticated %}
+        <p>welcome user: {{ request.user }}</p>
+    {% else %}
+        <p> please login</p>
+    {% endif %}
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -20,7 +25,7 @@
                     <a class="dropdown-item" href="{% url 'person' %}">person</a>
                 {% else %}
                     <a class="dropdown-item" href="{% url 'login' %}">login</a>
-                    <a class="dropdown-item" href="{%url 'signup' %}">Register</a>
+                    <a class="dropdown-item" href="{% url 'signup' %}">Register</a>
                 {% endif %}
 
 

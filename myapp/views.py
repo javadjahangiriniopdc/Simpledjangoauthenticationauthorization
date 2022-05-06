@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 # Create your views here.
@@ -24,6 +25,8 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+@login_required()
+@permission_required('myapp.custom_person_permission', raise_exception=True)
 def person(request):
     persons = Person.objects.all()
     return render(request, 'myapp/person.html', {'persons': persons})
